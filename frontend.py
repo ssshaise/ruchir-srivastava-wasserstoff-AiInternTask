@@ -2,6 +2,8 @@ import streamlit as st
 import requests
 import pandas as pd
 
+st.set_page_config(layout="wide" , page_title="Document Reasearch and Theme Identification Chatbot")
+
 st.subheader("Backend Connection Test")
 
 VERCEL_BASE_URL = "https://ruchir-srivastava-wasserstoff-ai-intern-task-3yv9jdiqr.vercel.app" 
@@ -17,8 +19,6 @@ if st.button("Run Backend Connection Test"):
     except Exception as e:
         st.error(f"An error occurred during the test: {e}")
 
-
-st.set_page_config(layout="wide" , page_title="Document Reasearch and Theme Identification Chatbot")
 
 def load_css(file_path):
     try:
