@@ -42,4 +42,5 @@ async def process_query(request: QueryRequest):
     
 @router.get("/test-access/")
 async def test_public_access():
+    # Forcing a new deployment on Vercel
     return {"message": "Success! Public access is working."}
