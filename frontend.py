@@ -4,22 +4,6 @@ import pandas as pd
 
 st.set_page_config(layout="wide" , page_title="Document Reasearch and Theme Identification Chatbot")
 
-st.subheader("Backend Connection Test")
-
-VERCEL_BASE_URL = "https://ruchir-srivastava-wasserstoff-ai-intern-task-3yv9jdiqr.vercel.app" 
-
-if st.button("Run Backend Connection Test"):
-    try:
-        test_url = f"{VERCEL_BASE_URL}/api/test"
-        st.write(f"Calling: {test_url}")
-        response = requests.get(test_url)
-        st.write("Backend Response:")
-        st.write(f"Status Code: {response.status_code}")
-        st.json(response.json())
-    except Exception as e:
-        st.error(f"An error occurred during the test: {e}")
-
-
 def load_css(file_path):
     try:
         with open(file_path) as f:
@@ -63,7 +47,7 @@ def display_results(results_data):
 
 load_css("style.css")
 
-API_URL = "https://ruchir-srivastava-wasserstoff-ai-intern-task-3yv9jdiqr.vercel.app" 
+API_URL = "http://127.0.0.1:8000" 
 
 if "messages" not in st.session_state:
     st.session_state.messages = []

@@ -13,3 +13,6 @@ langchain-community
 pydantic-settings
 pypdf
 streamlit-lottie
+streamlit
+requests
+pandas 
