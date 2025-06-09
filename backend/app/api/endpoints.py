@@ -40,6 +40,6 @@ async def process_query(request: QueryRequest):
         print(f"Error during query processing: {e}")
         raise HTTPException(status_code=500, detail=f"An error occurred: {str(e)}")
     
-@router.get("/test-public-access/")
+@router.get("/test-access/")
 async def test_public_access():
     return {"message": "Success! Public access is working."}
