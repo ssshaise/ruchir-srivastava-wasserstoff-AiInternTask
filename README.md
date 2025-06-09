@@ -10,6 +10,10 @@ An intelligent application that goes beyond simple Q&A to act as a powerful rese
 
 ---
 
+## Live URL
+
+You can visit the live demo at : https://reasearchgpttask.streamlit.app/
+
 ## The Problem
 
 Researchers, students, and professionals often work with large volumes of documents (reports, academic papers, legal texts). While finding specific facts can be tedious, the real challenge lies in identifying the **connections, patterns, and recurring themes** that exist across the entire document set. Standard search tools and basic Q&A bots fail to provide this high-level synthesis.
