@@ -1,0 +1,84 @@
+
+.stApp {
+    background-color: #181919;
+    color: #f5f5f5;
+}
+
+.stChatInputContainer {
+    border-top: 1px solid #000000;
+}
+
+div[data-testid="stInfo"] {
+    background-color: #000000;
+    border-radius: 10px;
+    padding: 15px !important; 
+    border: 1px solid #4b4b4b;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+div[data-testid="stInfo"]:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+div[data-testid="stButton"] > button {
+    border-radius: 20px;
+    border: 1px solid #c9c9c9;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+div[data-testid="stButton"] > button:hover {
+    background-color: #6c63ff;
+    color: white;
+    border-color: #6c63ff;
+}
+
+div[data-testid="stExpander"] {
+    border-radius: 10px;
+    border: 1px solid #4b4b4b;
+}
+
+[data-testid="stChatMessage"] {
+    align-items: flex-start;
+}
+
+[data-testid="stHeader"] {
+    background-color: #181919;
+}
+
+
+[data-testid="stHeader"] {
+    position: relative; 
+}
+
+[data-testid="stHeader"]::before {
+    content: 'Document Analysis and Theme Synthesis Chatbot';
+    
+    font-size: 1.25rem; 
+    font-weight: 600;
+    color: #FAFAFA;
+
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
+}
+
+.main .block-container {
+    padding-top: 2rem; 
+}
+
+[data-testid="stHorizontalBlock"] > div {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+
+[data-testid="stHorizontalBlock"] > div:nth-child(2) {
+    border-left: 1px solid #3d3d4e; 
+}
+
+ection[data-testid="stSidebar"] + div [data-testid="stHorizontalBlock"] h2 {
+    margin-bottom: 1.5rem;
+}
+
