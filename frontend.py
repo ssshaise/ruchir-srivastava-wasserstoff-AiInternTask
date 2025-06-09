@@ -10,7 +10,7 @@ VERCEL_BASE_URL = "https://ruchir-srivastava-wasserstoff-ai-intern-task-3yv9jdiq
 
 if st.button("Run Backend Connection Test"):
     try:
-        test_url = f"{VERCEL_BASE_URL}/test-access/"
+        test_url = f"{VERCEL_BASE_URL}/api/test"
         st.write(f"Calling: {test_url}")
         response = requests.get(test_url)
         st.write("Backend Response:")
