@@ -47,7 +47,7 @@ def display_results(results_data):
 
 load_css("style.css")
 
-API_URL = "http://127.0.0.1:8000" 
+API_URL = "https://ruchir-srivastava-wasserstoff.onrender.com" 
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
