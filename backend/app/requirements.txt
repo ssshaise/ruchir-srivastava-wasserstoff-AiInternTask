@@ -9,8 +9,6 @@ pytesseract
 Pillow
 pydantic
 python-dotenv
-requests
-streamlit
 langchain-community
 pydantic-settings
 pypdf
