@@ -6,7 +6,7 @@ st.set_page_config(layout="wide" , page_title="Document Reasearch and Theme Iden
 
 st.subheader("Backend Connection Test")
 
-VERCEL_BASE_URL = "https://ruchir-srivastava-wasserstoff-ai-intern-task-3yv9jdiqr.vercel.app" 
+VERCEL_BASE_URL = "https://ruchir-srivastava-wasserstoff-ai-intern-task-bg01lqicf.vercel.app" 
 
 if st.button("Run Backend Connection Test"):
     try:
