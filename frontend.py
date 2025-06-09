@@ -48,7 +48,7 @@ def display_results(results_data):
 
 load_css("style.css")
 
-API_URL = "https://ruchir-srivastava-wasserstoff-ai-intern-task-fd9dae6oc.vercel.app" 
+API_URL = "https://ruchir-srivastava-wasserstoff-ai-intern-task-rfinzdqpg.vercel.app/" 
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
