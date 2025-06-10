@@ -1,5 +1,3 @@
-# In backend/app/core/services/document_processor.py
-
 import os
 import pytesseract
 from PIL import Image
@@ -22,12 +20,15 @@ VECTOR_STORE_PATH = os.path.join(DATA_DIR, "faiss_index")
 
 class DocumentProcessor:
     def __init__(self):
+        # We configure our text splitter once here. The goal is to break down large
+        # documents into smaller, more manageable chunks for the AI model.
         self.text_splitter = RecursiveCharacterTextSplitter(
             chunk_size=1000, 
             chunk_overlap=200,
             separators=["\n\n", "\n", ". ", " ", ""]
         )
-        
+        # This sets up the Google service that will convert our text chunks into
+        # numerical vectors (embeddings), which is how the computer can find similarities.
         self.embeddings = GoogleGenerativeAIEmbeddings(
             model="models/embedding-001",
             google_api_key=settings.GOOGLE_API_KEY
@@ -39,6 +40,8 @@ class DocumentProcessor:
         """Helper function to create Document objects with paragraph metadata."""
         documents = []
         for i, chunk in enumerate(text_chunks):
+            # We're creating a LangChain 'Document' object here. The metadata is key,
+            # as it allows us to trace an answer back to its exact source later on.
             documents.append(Document(
                 page_content=chunk,
                 metadata={
@@ -70,6 +73,7 @@ class DocumentProcessor:
         """Extracts text from an image, splits by paragraph, and adds metadata."""
         print(f"Processing Image: {filename}")
         try:
+            # Pytesseract does the heavy lifting of 'reading' the image.
             text = pytesseract.image_to_string(Image.open(file_path))
             if not text:
                 return []
@@ -78,7 +82,7 @@ class DocumentProcessor:
             return self._create_documents_with_paragraph_metadata(
                 text_chunks, 
                 filename, 
-                1
+                1 # Images don't have multiple pages, so we just use 1.
             )
         except Exception as e:
             print(f"Error processing image {filename}: {e}")
@@ -110,6 +114,8 @@ class DocumentProcessor:
                 if chunks:
                     all_chunks.extend(chunks)
         finally:
+            # This 'finally' block is important. It ensures that we clean up all the
+            # temporary files and remove the directory, even if an error happened during processing.
             for file in os.listdir(temp_dir):
                 os.remove(os.path.join(temp_dir, file))
             os.rmdir(temp_dir)
@@ -117,7 +123,9 @@ class DocumentProcessor:
         if not all_chunks:
             print("No text could be extracted from the documents.")
             return None
-
+        # This is the final, crucial step. FAISS takes all our text chunks, uses the
+        # Google embedding service to turn them into vectors, and organizes them
+        # into a searchable in-memory database.
         print("Creating in-memory vector store...")
         vector_store = FAISS.from_documents(all_chunks, self.embeddings)
         print("In-memory vector store created.")
